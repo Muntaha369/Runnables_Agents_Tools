@@ -1,3 +1,5 @@
+#Runnable passthrough is used to get the output in middle of a pipeline
+
 from dotenv import load_dotenv
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_openrouter import ChatOpenRouter
@@ -24,6 +26,7 @@ summarize_prompt = ChatPromptTemplate.from_messages([
 
 pass1 = code_prompt | model | parser
 
+# RunnableParallel : Lets you run stuff parallely and also lets you store output in middle of pipeline thorugh RunnablePassthrough
 pass2 = RunnableParallel({
     "code":RunnablePassthrough(),
     "explanation": summarize_prompt | model | parser

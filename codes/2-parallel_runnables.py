@@ -19,6 +19,7 @@ long_prompt = ChatPromptTemplate.from_template(
     "Explain {topic} in detail"
 )
 
+# RunnableParallel : Lets you run stuff parallely and also lets you store output in middle of pipeline thorugh RunnablePassthrough
 chain = RunnableParallel({
     #The lambda insde is used to get the value of short or long and x represent a variable which is actually storing them
     "short" :RunnableLambda(lambda x :x['short']) |short_prompt | model | parser , # type: ignore
