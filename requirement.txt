@@ -5,3 +5,5 @@ python-dotenv
 langchain-mistralai
 langchain-community
 langchain_openrouter
+langchain-tavily
+rich
