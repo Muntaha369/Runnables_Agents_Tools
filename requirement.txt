@@ -7,3 +7,4 @@ langchain-community
 langchain_openrouter
 langchain-tavily
 rich
+tavily
