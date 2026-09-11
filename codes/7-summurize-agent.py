@@ -52,6 +52,10 @@ def get_news(city: str) -> str:
 llm = ChatOpenRouter(model="gpt-4o-mini") #type:ignore
 
 #creating a middleware beteen agent and the tool
+# 
+# ARGS :  
+# request → information about the tool call
+# handler → the function that can actually execute that tool call
 @wrap_tool_call
 def human_approval(request, handler):
     """Ask for human approval before every tool call."""
@@ -66,6 +70,7 @@ def human_approval(request, handler):
 
     return handler(request)  
 
+#Create agent here 
 agent = create_agent(
     llm,
     tools = [get_news],
